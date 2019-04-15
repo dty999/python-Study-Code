@@ -8,11 +8,11 @@
 
 """
 
-p = (4, 5)
-x, y = p
-data = ['ACME', 50, 91.1, (2012, 12, 21)]
-name, shares, price, date = data
-print(name, shares, price, date)
-record = ('Dave', 'dave@example.com', '773-555-1212', '345-888-9899')
-name, email, *phone_numbers = record
-print(name, email, phone_numbers)
+def fun(a,argsL = None):
+	if argsL is None:
+		argsL = []
+	argsL.append(a )
+	return argsL
+for i in range(10):
+	r = fun(i)
+	print(r)
