@@ -21,9 +21,9 @@ class EmailUser():
             self.smtp.login(sender_mail, pwd)
         except Exception as e:
             raise e
-            # 发送html
 
     def sendHtmlEmail(self, receiver, mail_title, mail_content):
+        # 发送html
         try:
             msg = MIMEText(mail_content, "html", 'utf-8')  # 发送的是html,不能带图片
 
@@ -35,9 +35,9 @@ class EmailUser():
 
         except Exception as e:
             raise e
-            # 发送带附件的邮件
 
     def sendAttachments(self, receiver, mail_title, mail_content, attpaths):
+        # 发送带附件的邮件
         try:
             msg = MIMEMultipart()
 
@@ -59,9 +59,9 @@ class EmailUser():
 
         except Exception as e:
             raise e
-            # 发送带图片的html邮件
 
     def sendHtmlAttPic(self, receiver, mail_title, mail_content, picnames):
+        # 发送带图片的html邮件
         try:
             msg = MIMEMultipart('related')
             msg["Subject"] = Header(mail_title, 'utf-8')
