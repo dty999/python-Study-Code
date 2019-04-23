@@ -1,7 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
 import string
-
+import time
 
 def getcontent(url):
 
@@ -43,9 +43,7 @@ startnum = 0
 
 def linkgen():
     global startnum
-    with open('num.txt','rt',encoding='utf-8') as f:
-        startnum = int(f.read())
-    for i in range(startnum,10,1):
+    for i in range(startnum,startnum + 10,1):
         for j in range(24):
             link = str(i) + string.ascii_lowercase[j]
             yield link
@@ -53,11 +51,17 @@ def linkgen():
     return
 
 
+
+
+with open('num.txt','rt',encoding='utf-8') as f:
+    startnum = int(f.read())
+
 for i in linkgen():
     url = 'http://www.guoxuedashi.com/renwu/' + str(i) + '/'
     name, shengzu, jieshao  = getcontent(url)
     with open('num.txt','wt',encoding='utf-8') as f:
-        f.write(str(startnum))
+        f.write(str(startnum+1))
+
 
 
     if name == None:
