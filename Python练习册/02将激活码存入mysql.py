@@ -3,7 +3,6 @@ import pymysql
 import random
 import string
 
-
 def cdkey(num):
     s = set()
     while len(s) < num:
